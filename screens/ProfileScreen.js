@@ -1,10 +1,16 @@
-import { View } from 'react-native';
-import { Avatar } from 'react-native-elements';
+import { View, Text } from 'react-native';
+import { Avatar, ListItem } from 'react-native-elements';
 
 const ProfileScreen = () => {
     return (
         <View>
-            <Avatar />
+            <ListItem>
+                <Avatar />
+                <ListItem.Content>
+                    <ListItem.Title>Name</ListItem.Title>
+                    <ListItem.Subtitle>Bio</ListItem.Subtitle>
+                </ListItem.Content>
+            </ListItem>
         </View>
     )
 };
