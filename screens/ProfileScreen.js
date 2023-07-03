@@ -11,6 +11,7 @@ const ProfileScreen = () => {
                     <ListItem.Subtitle>Bio</ListItem.Subtitle>
                 </ListItem.Content>
             </ListItem>
+            <Text>Content</Text>
         </View>
     )
 };
