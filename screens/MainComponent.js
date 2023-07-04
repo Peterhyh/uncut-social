@@ -1,46 +1,38 @@
-// import HomeScreen from './HomeScreen';
 import ProfileScreen from './ProfileScreen';
 import Constants from 'expo-constants';
 import HomeScreen from './HomeScreen';
-import { useState } from 'react';
 import { View, Platform } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
-const DirectoryNavigator = () => {
-    const Stack = createStackNavigator();
-    return (
-        <Stack.Navigator
-            initialRouteName='Home'
-            screenOptions={{
-                headerStyle: { backgroundColor: '#202020' },
-                headerTintColor: '#212121',
-            }}
-        >
-            <Stack.Screen
-                name='Home'
-                component={HomeScreen}
-                options={{ title: 'Home' }}
-            />
+const Tab = createBottomTabNavigator();
 
-            <Stack.Screen
-                name='Profile'
-                component={ProfileScreen}
-                options={{ title: 'Profile' }}
-            />
-        </Stack.Navigator>
-    );
+const screenOptions = {
+    headerTintColor: '#fff',
+    headerStyle: { backgroundColor: '#073028' },
 };
 
 const Main = () => {
-    const [content, setContent] = useState();
     return (
         <View
             style={{
                 flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
             }}
         >
-            <DirectoryNavigator />
+            <Tab.Navigator
+                initialRouteName='Home'
+                screenOptions={screenOptions}
+            >
+                <Tab.Screen
+                    name='Home'
+                    component={HomeScreen}
+                />
+                <Tab.Screen
+                    name='Profile'
+                    component={ProfileScreen}
+                />
+            </Tab.Navigator>
         </View>
     );
 };
