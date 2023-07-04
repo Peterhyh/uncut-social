@@ -1,11 +1,11 @@
 import { ListItem } from 'react-native-elements';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
-        <ListItem>
+        <ListItem onPress={() => navigation.navigate('Profile')}>
             <ListItem.Content>
                 <ListItem.Title>
-                    Home Page
+                    Profile
                 </ListItem.Title>
             </ListItem.Content>
         </ListItem>
