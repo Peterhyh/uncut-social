@@ -1,8 +1,7 @@
 import ProfileScreen from './ProfileScreen';
 import Constants from 'expo-constants';
 import HomeScreen from './HomeScreen';
-import { View, Platform } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { View, Platform, StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 
@@ -10,15 +9,13 @@ const Tab = createBottomTabNavigator();
 
 const screenOptions = {
     headerTintColor: '#fff',
-    headerStyle: { backgroundColor: '#073028' },
+    headerStyle: { backgroundColor: '#000' },
 };
 
 const Main = () => {
     return (
         <View
-            style={{
-                flex: 1, paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
-            }}
+            style={styles.container}
         >
             <Tab.Navigator
                 initialRouteName='Home'
@@ -36,5 +33,15 @@ const Main = () => {
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight,
+    },
+    nav: {
+        backgroundColor: 'red',
+    },
+});
 
 export default Main;

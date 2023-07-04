@@ -1,15 +1,19 @@
-import { ListItem } from 'react-native-elements';
+import { View, StyleSheet } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = () => {
     return (
-        <ListItem onPress={() => navigation.navigate('Profile')}>
-            <ListItem.Content>
-                <ListItem.Title>
-                    Profile
-                </ListItem.Title>
-            </ListItem.Content>
-        </ListItem>
+        <View style={styles.container}>
+
+        </View>
     )
 };
+
+const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        backgroundColor: '#202124',
+        height: '100%',
+    },
+});
 
 export default HomeScreen;
