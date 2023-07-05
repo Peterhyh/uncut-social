@@ -1,6 +1,7 @@
 import { View, TextInput, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
-
+import { FIREBASE_AUTH } from '../FirebaseConfig';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 
 const RegisterScreen = () => {
@@ -11,42 +12,56 @@ const RegisterScreen = () => {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
 
+    const auth = FIREBASE_AUTH;
+
+    const handleSignUp = async () => {
+        try {
+            const response = await createUserWithEmailAndPassword(auth, email, password);
+            console.log(response);
+            alert('Success!');
+        } catch (error) {
+            console.log(error);
+            alert('Error!');
+        }
+    };
+
     return (
         <View style={styles.container}>
             <TextInput
                 placeholder='Username'
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChangeText={setUsername}
             />
             <TextInput
                 placeholder='Email'
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChangeText={setEmail}
             />
             <TextInput
                 placeholder='Password'
                 secureTextEntry={true}
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChangeText={setPassword}
             />
             <TextInput
                 placeholder='Confirm Password'
                 secureTextEntry={true}
                 value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                onChangeText={setConfirmPassword}
             />
             <TextInput
                 placeholder='First Name'
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                onChangeText={setFirstName}
             />
             <TextInput
                 placeholder='Last Name'
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                onChangeText={setLastName}
             />
 
             <TouchableOpacity
+                onPress={handleSignUp}
                 style={styles.button}
             >
                 <Text style={styles.buttonText}>Sign Up</Text>
