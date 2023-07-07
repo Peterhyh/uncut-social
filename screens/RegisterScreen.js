@@ -7,6 +7,10 @@ const RegisterScreen = () => {
 
     const input1 = useRef(null);
     const input2 = useRef(null);
+    const input3 = useRef(null);
+    const input4 = useRef(null);
+    const input5 = useRef(null);
+    const input6 = useRef(null);
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -30,6 +34,14 @@ const RegisterScreen = () => {
     const handleReturnKeyPress = (currentInput) => {
         if (currentInput === input1) {
             input2.current.focus();
+        } else if (currentInput === input2) {
+            input3.current.focus();
+        } else if (currentInput === input3) {
+            input4.current.focus();
+        } else if (currentInput === input4) {
+            input5.current.focus();
+        } else if (currentInput === input5) {
+            input6.current.focus();
         }
     };
 
@@ -49,14 +61,13 @@ const RegisterScreen = () => {
     };
 
     return (
+        <View style={styles.container}>
+            <ScrollView>
 
-        <ScrollView>
-            <View style={styles.container}>
                 <View style={styles.inputContainer}>
-
                     <TextInput
-                        ref={input1}
                         returnKeyType='next'
+                        ref={input1}
                         onSubmitEditing={() => handleReturnKeyPress(input1)}
                         keyboardAppearance='dark'
                         autoCapitalize='none'
@@ -66,7 +77,9 @@ const RegisterScreen = () => {
                         onChangeText={setUsername}
                     />
                     <TextInput
+                        returnKeyType='next'
                         ref={input2}
+                        onSubmitEditing={() => handleReturnKeyPress(input2)}
                         keyboardAppearance='dark'
                         autoCapitalize='none'
                         style={styles.input}
@@ -75,6 +88,9 @@ const RegisterScreen = () => {
                         onChangeText={setEmail}
                     />
                     <TextInput
+                        returnKeyType='next'
+                        ref={input3}
+                        onSubmitEditing={() => handleReturnKeyPress(input3)}
                         keyboardAppearance='dark'
                         style={styles.input}
                         placeholder='Password'
@@ -83,6 +99,9 @@ const RegisterScreen = () => {
                         onChangeText={setPassword}
                     />
                     <TextInput
+                        returnKeyType='next'
+                        ref={input4}
+                        onSubmitEditing={() => handleReturnKeyPress(input4)}
                         keyboardAppearance='dark'
                         style={styles.input}
                         placeholder='Confirm Password'
@@ -91,6 +110,9 @@ const RegisterScreen = () => {
                         onChangeText={setConfirmPassword}
                     />
                     <TextInput
+                        returnKeyType='next'
+                        ref={input5}
+                        onSubmitEditing={() => handleReturnKeyPress(input5)}
                         keyboardAppearance='dark'
                         style={styles.input}
                         placeholder='First Name'
@@ -98,6 +120,9 @@ const RegisterScreen = () => {
                         onChangeText={setFirstName}
                     />
                     <TextInput
+                        returnKeyType='done'
+                        ref={input6}
+                        onSubmitEditing={() => handleReturnKeyPress(input6)}
                         keyboardAppearance='dark'
                         style={styles.input}
                         placeholder='Last Name'
@@ -105,9 +130,6 @@ const RegisterScreen = () => {
                         onChangeText={setLastName}
                     />
 
-                </View>
-
-                <View>
                     <TouchableOpacity
                         style={styles.button}
                         onPress={handleSignUp}
@@ -115,18 +137,18 @@ const RegisterScreen = () => {
                         <Text style={styles.buttonText}>Sign Up</Text>
                     </TouchableOpacity>
                 </View>
-            </View >
-        </ScrollView>
+            </ScrollView>
+        </View >
 
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100%',
+        flex: 1,
+        height: '100%'
     },
     button: {
         backgroundColor: '#202020',
@@ -138,7 +160,7 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     inputContainer: {
-        width: '90%',
+        width: '100%',
     },
     input: {
         borderWidth: 2,
