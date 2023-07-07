@@ -63,80 +63,65 @@ const RegisterScreen = () => {
     return (
         <View style={styles.container}>
             <ScrollView>
+                <TextInput
+                    returnKeyType='next'
+                    ref={input1}
+                    onSubmitEditing={() => handleReturnKeyPress(input1)}
+                    autoCapitalize='none'
+                    placeholder='Username'
+                    value={username}
+                    onChangeText={setUsername}
+                />
+                <TextInput
+                    returnKeyType='next'
+                    ref={input2}
+                    onSubmitEditing={() => handleReturnKeyPress(input2)}
+                    autoCapitalize='none'
+                    placeholder='Email'
+                    value={email}
+                    onChangeText={setEmail}
+                />
+                <TextInput
+                    returnKeyType='next'
+                    ref={input3}
+                    onSubmitEditing={() => handleReturnKeyPress(input3)}
+                    placeholder='Password'
+                    secureTextEntry={true}
+                    value={password}
+                    onChangeText={setPassword}
+                />
+                <TextInput
+                    returnKeyType='next'
+                    ref={input4}
+                    onSubmitEditing={() => handleReturnKeyPress(input4)}
+                    placeholder='Confirm Password'
+                    secureTextEntry={true}
+                    value={confirmPassword}
+                    onChangeText={setConfirmPassword}
+                />
+                <TextInput
+                    returnKeyType='next'
+                    ref={input5}
+                    onSubmitEditing={() => handleReturnKeyPress(input5)}
+                    placeholder='First Name'
+                    value={firstName}
+                    onChangeText={setFirstName}
+                />
+                <TextInput
+                    returnKeyType='done'
+                    ref={input6}
+                    onSubmitEditing={() => handleReturnKeyPress(input6)}
+                    placeholder='Last Name'
+                    value={lastName}
+                    onChangeText={setLastName}
+                />
 
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        returnKeyType='next'
-                        ref={input1}
-                        onSubmitEditing={() => handleReturnKeyPress(input1)}
-                        keyboardAppearance='dark'
-                        autoCapitalize='none'
-                        style={styles.input}
-                        placeholder='Username'
-                        value={username}
-                        onChangeText={setUsername}
-                    />
-                    <TextInput
-                        returnKeyType='next'
-                        ref={input2}
-                        onSubmitEditing={() => handleReturnKeyPress(input2)}
-                        keyboardAppearance='dark'
-                        autoCapitalize='none'
-                        style={styles.input}
-                        placeholder='Email'
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                    <TextInput
-                        returnKeyType='next'
-                        ref={input3}
-                        onSubmitEditing={() => handleReturnKeyPress(input3)}
-                        keyboardAppearance='dark'
-                        style={styles.input}
-                        placeholder='Password'
-                        secureTextEntry={true}
-                        value={password}
-                        onChangeText={setPassword}
-                    />
-                    <TextInput
-                        returnKeyType='next'
-                        ref={input4}
-                        onSubmitEditing={() => handleReturnKeyPress(input4)}
-                        keyboardAppearance='dark'
-                        style={styles.input}
-                        placeholder='Confirm Password'
-                        secureTextEntry={true}
-                        value={confirmPassword}
-                        onChangeText={setConfirmPassword}
-                    />
-                    <TextInput
-                        returnKeyType='next'
-                        ref={input5}
-                        onSubmitEditing={() => handleReturnKeyPress(input5)}
-                        keyboardAppearance='dark'
-                        style={styles.input}
-                        placeholder='First Name'
-                        value={firstName}
-                        onChangeText={setFirstName}
-                    />
-                    <TextInput
-                        returnKeyType='done'
-                        ref={input6}
-                        onSubmitEditing={() => handleReturnKeyPress(input6)}
-                        keyboardAppearance='dark'
-                        style={styles.input}
-                        placeholder='Last Name'
-                        value={lastName}
-                        onChangeText={setLastName}
-                    />
-
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={handleSignUp}
-                    >
-                        <Text style={styles.buttonText}>Sign Up</Text>
-                    </TouchableOpacity>
-                </View>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={handleSignUp}
+                >
+                    <Text style={styles.buttonText}>Sign Up</Text>
+                </TouchableOpacity>
             </ScrollView>
         </View >
 
@@ -147,8 +132,9 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
+        borderWidth: 1,
+        borderColor: 'red',
         flex: 1,
-        height: '100%'
     },
     button: {
         backgroundColor: '#202020',
@@ -160,7 +146,9 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     inputContainer: {
-        width: '100%',
+
+        flex: 1,
+        width: '100%'
     },
     input: {
         borderWidth: 2,
