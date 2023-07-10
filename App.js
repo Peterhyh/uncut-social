@@ -1,13 +1,14 @@
 import RegisterScreen from './screens/RegisterScreen';
 import LandingScreen from './screens/LandingScreen';
 import LoginScreen from './screens/LoginScreen';
+import Stories from './components/Stories';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Header from './components/Header';
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, SENDER_ID, APP_ID, MEASUREMENT_ID } from '@env';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -26,9 +27,10 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Header />
-      <NavigationContainer>
+      <Stories />
+      <NavigationContainer >
         <Stack.Navigator
           initialRouteName='Landing'
         >
@@ -52,3 +54,10 @@ export default function App() {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+});
