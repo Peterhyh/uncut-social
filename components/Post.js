@@ -10,7 +10,13 @@ const Post = ({ post, i }) => {
             <Divider width={1} orientation='vertical' />
             <PostHeader post={post} />
             <PostImage post={post} />
-            <PostFooter />
+            <View style={styles.postFooterContainer}>
+                <PostFooter />
+                <Likes post={post} />
+                <Caption post={post} />
+                <CommentSection post={post} />
+                <Comments post={post} />
+            </View>
         </View>
     );
 };
@@ -62,9 +68,54 @@ const PostFooter = () => (
     </View>
 );
 
+const Likes = ({ post }) => (
+    <View>
+        <Text style={styles.text}>{post.likes.toLocaleString('en')} likes</Text>
+    </View>
+);
+
+const Caption = ({ post }) => (
+    <View>
+        <Text>
+            <Text style={styles.postUsername}>{post.username}</Text>
+            <Text style={styles.postCaption}> {post.caption}</Text>
+        </Text>
+    </View>
+);
+
+const CommentSection = ({ post }) => {
+    return (
+        <View>
+            {!!post.comments.length && (
+                <Text style={styles.commentSectionText}>
+                    View {post.comments.length > 1 ? 'all' : ''} {post.comments.length} {post.comments.length > 1 ? 'comments' : ' comment'}
+                </Text>
+            )}
+        </View>
+    );
+};
+
+const Comments = ({ post }) => (
+    <View>
+        {post.comments.map((comments, i) => (
+            <View style={styles.commentsContainer} key={i}>
+                <Text style={styles.text}>
+                    <Text style={styles.postUsername}>
+                        {comments.username}
+                    </Text>
+                    {' '}{comments.comment}
+                </Text>
+            </View>
+        ))}
+    </View>
+);
+
 const styles = StyleSheet.create({
     container: {
         marginBottom: 30,
+    },
+    text: {
+        color: '#fff',
     },
     headerContainer: {
         flexDirection: 'row',
@@ -103,11 +154,26 @@ const styles = StyleSheet.create({
         width: 33,
         marginRight: 10,
     },
-    postFooterIconContainer: {
-        flexDirection: 'row',
+    postFooterContainer: {
         marginHorizontal: 10,
         marginTop: 10
     },
+    postFooterIconContainer: {
+        flexDirection: 'row',
+    },
+    postUsername: {
+        color: '#fff',
+        fontWeight: 600,
+    },
+    postCaption: {
+        color: '#fff',
+    },
+    commentSectionText: {
+        color: 'grey',
+    },
+    commentsContainer: {
+        marginTop: 5,
+    }
 });
 
 export default Post;
