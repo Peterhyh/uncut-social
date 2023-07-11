@@ -1,6 +1,8 @@
-import { View, Image, StyleSheet, Text } from 'react-native';
+import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-elements';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import SHARE from '../assets/images/share.png';
+import COMMENT from '../assets/images/comment.png';
+import LIKE from '../assets/images/like.png';
 
 const Post = ({ post, i }) => {
     return (
@@ -8,6 +10,7 @@ const Post = ({ post, i }) => {
             <Divider width={1} orientation='vertical' />
             <PostHeader post={post} />
             <PostImage post={post} />
+            <PostFooter />
         </View>
     );
 };
@@ -41,6 +44,23 @@ const PostImage = ({ post }) => {
         </View>
     );
 };
+
+const Icon = ({ imgStyle, imgUrl }) => (
+    <TouchableOpacity>
+        <Image style={imgStyle} source={imgUrl} />
+    </TouchableOpacity>
+);
+
+const PostFooter = () => (
+    <View>
+        <View style={styles.postFooterIconContainer}>
+            <Icon imgStyle={styles.postFooter} imgUrl={LIKE} />
+            <Icon imgStyle={styles.postFooter} imgUrl={COMMENT} />
+            <Icon imgStyle={styles.postFooter} imgUrl={SHARE} />
+        </View>
+
+    </View>
+);
 
 const styles = StyleSheet.create({
     container: {
@@ -77,6 +97,16 @@ const styles = StyleSheet.create({
     postImage: {
         height: '100%',
         width: '100%',
+    },
+    postFooter: {
+        height: 33,
+        width: 33,
+        marginRight: 10,
+    },
+    postFooterIconContainer: {
+        flexDirection: 'row',
+        marginHorizontal: 10,
+        marginTop: 10
     },
 });
 

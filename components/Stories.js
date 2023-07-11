@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'rea
 const Stories = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Stories</Text>
             <ScrollView horizontal>
                 <TouchableOpacity>
                     <Image
