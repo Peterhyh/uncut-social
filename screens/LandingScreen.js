@@ -7,7 +7,6 @@ const LandingScreen = ({ navigation }) => {
         <View style={styles.container}>
             <TouchableOpacity
                 style={styles.button}
-                title='Login'
                 onPress={() => navigation.navigate('Login')}
             >
                 <Text style={styles.buttonText}>Login</Text>
@@ -15,10 +14,16 @@ const LandingScreen = ({ navigation }) => {
 
             <TouchableOpacity
                 style={styles.button}
-                title=''
                 onPress={() => navigation.navigate('Register')}
             >
                 <Text style={styles.buttonText}>Register</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate('Home')}
+            >
+                <Text style={styles.buttonText}>Home</Text>
             </TouchableOpacity>
         </View>
     );

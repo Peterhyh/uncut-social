@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'rea
 
 const Stories = () => {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.text}>Stories</Text>
             <ScrollView horizontal>
                 <TouchableOpacity>
@@ -26,6 +26,9 @@ const Stories = () => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        marginBottom: 20,
+    },
     text: {
         color: '#fff'
     },
