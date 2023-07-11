@@ -21,7 +21,7 @@ const LandingScreen = ({ navigation }) => {
 
             <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => navigation.navigate('Test')}
             >
                 <Text style={styles.buttonText}>Home</Text>
             </TouchableOpacity>

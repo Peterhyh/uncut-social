@@ -3,7 +3,7 @@ import Stories from '../components/Stories';
 import Header from '../components/Header';
 import Post from '../components/Post';
 import { POST } from '../data/posts';
-
+import BottomTab from '../components/BottomTab';
 
 const HomeScreen = () => {
     return (
@@ -16,6 +16,7 @@ const HomeScreen = () => {
                 ))}
 
             </ScrollView>
+            <BottomTab />
         </SafeAreaView>
     )
 };

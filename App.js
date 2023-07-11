@@ -8,7 +8,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import { API_KEY, AUTH_DOMAIN, PROJECT_ID, STORAGE_BUCKET, SENDER_ID, APP_ID, MEASUREMENT_ID } from '@env';
-import { SafeAreaView, StyleSheet } from 'react-native';
 
 const firebaseConfig = {
   apiKey: API_KEY,
@@ -47,7 +46,7 @@ export default function App() {
           component={LoginScreen}
         />
         <Stack.Screen
-          name='Home'
+          name='Test'
           component={HomeScreen}
         />
       </Stack.Navigator>

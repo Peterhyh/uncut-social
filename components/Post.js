@@ -7,7 +7,6 @@ import LIKE from '../assets/images/like.png';
 const Post = ({ post, i }) => {
     return (
         <View style={styles.container} key={i}>
-            <Divider width={1} orientation='vertical' />
             <PostHeader post={post} />
             <PostImage post={post} />
             <View style={styles.postFooterContainer}>
@@ -43,10 +42,12 @@ const PostHeader = ({ post }) => {
 const PostImage = ({ post }) => {
     return (
         <View style={styles.postImageContainer}>
+            <Divider width={1} orientation='vertical' />
             <Image
                 style={styles.postImage}
                 source={post.post_image}
             />
+            <Divider width={1} orientation='vertical' />
         </View>
     );
 };
