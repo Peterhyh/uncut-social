@@ -2,6 +2,7 @@ import RegisterScreen from './screens/RegisterScreen';
 import LandingScreen from './screens/LandingScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import AddNewPost from './components/AddNewPost';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -47,7 +48,7 @@ export default function App() {
         />
         <Stack.Screen
           name='Test'
-          component={HomeScreen}
+          component={AddNewPost}
         />
       </Stack.Navigator>
     </NavigationContainer>
