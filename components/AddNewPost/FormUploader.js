@@ -23,22 +23,22 @@ const FormUploader = () => {
                 errors,
                 isInvalid,
             }) => (
-                <View style={styles.container}>
-                    <Image
-                        style={styles.uploadedImage}
-                        source={PLACEHOLDER_IMAGE}
-                    />
-                    <View>
+                <>
+                    <View style={styles.container}>
+                        <Image
+                            style={styles.uploadedImage}
+                            source={PLACEHOLDER_IMAGE}
+                        />
                         <TextInput
                             placeholder='Write a caption...'
                             placeholderTextColor='gray'
                         />
-                        <TextInput
-                            placeholder='Enter image Url'
-                            placeholderTextColor='gray'
-                        />
                     </View>
-                </View>
+                    <TextInput
+                        placeholder='Enter image Url'
+                        placeholderTextColor='gray'
+                    />
+                </>
             )}
         </Formik>
     );
@@ -47,7 +47,9 @@ const FormUploader = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        alignItems: 'center',
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        margin: 20,
     },
     uploadedImage: {
         height: 100,
