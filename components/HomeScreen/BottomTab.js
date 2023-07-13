@@ -1,8 +1,8 @@
-import SEARCH_INACTIVE from '../assets/images/searchInactive.png';
-import SEARCH_ACTIVE from '../assets/images/searchActive.png';
-import HOME_INACTIVE from '../assets/images/homeInactive.png';
-import HOME_ACTIVE from '../assets/images/homeActive.png';
-import PIC from '../assets/images/profilePic.jpg';
+import SEARCH_INACTIVE from '../../assets/images/searchInactive.png';
+import SEARCH_ACTIVE from '../../assets/images/searchActive.png';
+import HOME_INACTIVE from '../../assets/images/homeInactive.png';
+import HOME_ACTIVE from '../../assets/images/homeActive.png';
+import PIC from '../../assets/images/profilePic.jpg';
 import { Image, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Divider } from 'react-native-elements';
 import { useState } from 'react';
@@ -24,6 +24,8 @@ const icons = [
         active: PIC,
     },
 ];
+
+
 
 const BottomTab = () => {
     const [activeTab, setActiveTab] = useState('Home');

@@ -1,8 +1,8 @@
 import { View, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Divider } from 'react-native-elements';
-import SHARE from '../assets/images/share.png';
-import COMMENT from '../assets/images/comment.png';
-import LIKE from '../assets/images/like.png';
+import SHARE from '../../assets/images/share.png';
+import COMMENT from '../../assets/images/comment.png';
+import LIKE from '../../assets/images/like.png';
 
 const Post = ({ post, i }) => {
     return (

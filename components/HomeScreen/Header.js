@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity>
@@ -8,16 +8,18 @@ const Header = () => {
             </TouchableOpacity>
 
             <View style={styles.iconsContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.push('NewPostScreen')}
+                >
                     <Image
                         style={styles.icon}
-                        source={require('../assets/images/plus.png')}
+                        source={require('../../assets/images/plus.png')}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <Image
                         style={styles.icon}
-                        source={require('../assets/images/bell.png')}
+                        source={require('../../assets/images/bell.png')}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -26,7 +28,7 @@ const Header = () => {
                     </View>
                     <Image
                         style={styles.icon}
-                        source={require('../assets/images/message.png')}
+                        source={require('../../assets/images/message.png')}
                     />
                 </TouchableOpacity>
             </View>

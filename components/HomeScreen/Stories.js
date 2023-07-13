@@ -7,14 +7,14 @@ const Stories = () => {
                 <TouchableOpacity>
                     <Image
                         style={styles.addStory}
-                        source={require('../assets/images/plus.png')}
+                        source={require('../../assets/images/plus.png')}
                     />
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <View style={styles.storyContainer}>
                         <Image
                             style={styles.story}
-                            source={require('../assets/images/profilePic.jpg')}
+                            source={require('../../assets/images/profilePic.jpg')}
                         />
                         <Text style={styles.text}>Peter Huynh</Text>
                     </View>

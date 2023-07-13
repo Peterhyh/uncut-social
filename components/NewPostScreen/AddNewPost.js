@@ -1,20 +1,22 @@
 import { Image, StyleSheet, View, TouchableOpacity, Text } from "react-native";
-import BACK_BUTTON from '../assets/images/backButton.png';
-import FormUploader from './AddNewPost/FormUploader';
+import BACK_BUTTON from '../../assets/images/backButton.png';
+import FormUploader from './FormUploader';
 
-const AddNewPost = () => {
+const AddNewPost = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <FormUploader />
         </View>
     );
 };
 
-const Header = () => {
+const Header = ({ navigation }) => {
     return (
         <View style={styles.headerContainer}>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.goBack()}
+            >
                 <Image
                     style={styles.backButton}
                     source={BACK_BUTTON}
@@ -27,8 +29,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#000',
-        height: '100%',
+        paddingTop: 40,
     },
     headerContainer: {
         margin: 10,
