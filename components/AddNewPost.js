@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         position: 'absolute',
         left: '42%',
-        fontweight: 700,
+        fontWeight: 700,
     },
 });
 
