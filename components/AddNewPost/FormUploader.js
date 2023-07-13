@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
     },
     imageUrlErrorMessage: {
-        color: 'red',
+        color: '#F88070',
     },
     input: {
         color: '#fff',
