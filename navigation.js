@@ -1,6 +1,7 @@
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import NewPostScreen from './screens/NewPostScreen';
+import RegisterScreen from './screens/RegisterScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -30,6 +31,11 @@ const SignedInStack = () => {
                 <Stack.Screen
                     name='LoginScreen'
                     component={LoginScreen}
+                    options={screenOptions}
+                />
+                <Stack.Screen
+                    name='RegisterScreen'
+                    component={RegisterScreen}
                     options={screenOptions}
                 />
             </Stack.Navigator>

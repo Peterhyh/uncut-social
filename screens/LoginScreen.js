@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 
 const auth = FIREBASE_AUTH;
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
 
     const loginFormSchema = Yup.object().shape({
         email: Yup.string().email().required('An email is required'),
@@ -17,11 +17,6 @@ const LoginScreen = () => {
 
     const input1 = useRef();
     const input2 = useRef();
-
-    const clearForm = () => {
-        setEmail('');
-        setPassword('');
-    };
 
     const handleReturnKeyPress = (currentInput) => {
         if (currentInput === input1) {
@@ -50,13 +45,16 @@ const LoginScreen = () => {
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validationSchema={loginFormSchema}
-                onSubmit={values => console.log(values)}
+                onSubmit={values => {
+                    console.log(values);
+                    navigation.navigate('HomeScreen');
+                }}
                 validateOnMount={true}
             >
                 {({ handleChange, handleBlur, handleSubmit, values, isValid }) => (
                     <>
                         <View>
-                            <Text style={styles.logo}>UPLOAD</Text>
+                            <Text style={styles.logo}>UPLOADED</Text>
                         </View>
 
 
@@ -112,7 +110,7 @@ const LoginScreen = () => {
 
                         <View style={styles.signUpContainer}>
                             <Text style={styles.text}>Don't have an account?</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
                                 <Text style={styles.signUpText}>Sign Up</Text>
                             </TouchableOpacity>
                         </View>
