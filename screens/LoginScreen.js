@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         borderColor: '#fff',
         color: '#fff',
         backgroundColor: 'gray',
-        margin: 10,
+        margin: 11,
         padding: 10,
     },
     loginContainer: isValid => ({
