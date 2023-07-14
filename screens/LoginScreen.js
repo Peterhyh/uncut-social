@@ -1,4 +1,4 @@
-import { View, TextInput, Text, StyleSheet } from 'react-native';
+import { View, TextInput, Text, StyleSheet, Pressable } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState, useRef } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -9,13 +9,11 @@ import * as Yup from 'yup';
 const auth = FIREBASE_AUTH;
 
 const LoginScreen = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
     const loginFormSchema = Yup.object().shape({
         email: Yup.string().email().required('An email is required'),
         password: Yup.string().required().min(8, 'Password must be at least 8 characters')
-    })
+    });
 
     const input1 = useRef();
     const input2 = useRef();
@@ -31,83 +29,98 @@ const LoginScreen = () => {
         };
     };
 
-    const handleLogin = async () => {
-        try {
-            await signInWithEmailAndPassword(auth, email, password)
-                .then((response) => {
-                    console.log(response);
-                    alert('Login Successful!');
-                    clearForm();
-                })
-                .catch(err => {
-                    alert('Email and password did not match');
-                });
-        } catch (error) {
-            alert(error);
-        }
-    };
+    // const handleLogin = async () => {
+    //     try {
+    //         await signInWithEmailAndPassword(auth, email, password)
+    //             .then((response) => {
+    //                 console.log(response);
+    //                 alert('Login Successful!');
+    //                 clearForm();
+    //             })
+    //             .catch(err => {
+    //                 alert('Email and password did not match');
+    //             });
+    //     } catch (error) {
+    //         alert(error);
+    //     }
+    // };
 
     return (
-        <Formik
-            validationSchema={loginFormSchema}
-            onSubmit={response => console.log(response)}
+        <View style={styles.container}>
+            <Formik
+                initialValues={{ email: '', password: '' }}
+                validationSchema={loginFormSchema}
+                onSubmit={values => console.log(values)}
+                validateOnMount={true}
+            >
+                {({ handleChange, handleBlur, handleSubmit, values, isValid }) => (
+                    <>
+                        <View>
+                            <Text style={styles.logo}>UPLOAD</Text>
+                        </View>
 
-        >
-            <View style={styles.container}>
-                <View>
 
-                </View>
-                <Text style={styles.logo}>UPLOAD</Text>
-                <View style={styles.inputContainer}>
-                    <TextInput
-                        ref={input1}
-                        returnKeyType='next'
-                        onSubmitEditing={() => handleReturnKeyPress(input1)}
-                        style={styles.input}
-                        autoCapitalize='none'
-                        placeholder='Email'
-                        placeholderTextColor='white'
-                        keyboardType='email-address'
-                        autoFocus={true}
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                    <TextInput
-                        ref={input2}
-                        returnKeyType='done'
-                        onSubmitEditing={() => handleReturnKeyPress(input2)}
-                        style={styles.input}
-                        autoCapitalize='none'
-                        autoCorrect={false}
-                        secureTextEntry={true}
-                        textContentType='password'
-                        placeholder='Password'
-                        placeholderTextColor='white'
-                        value={password}
-                        onChangeText={setPassword}
-                    />
-                </View>
-                <View style={styles.forgotPasswordButtonContainer}>
-                    <TouchableOpacity>
-                        <Text style={styles.forgotPasswordButton}>Forgot password?</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.loginContainer}>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={handleLogin}
-                    >
-                        <Text style={styles.buttonText}>Log in</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.signUpContainer}>
-                    <Text style={styles.text}>Don't have an account?</Text>
-                    <TouchableOpacity>
-                        <Text style={styles.signUpText}>Sign Up</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </Formik>
+                        <View style={styles.inputContainer}>
+                            <TextInput
+                                ref={input1}
+                                returnKeyType='next'
+                                onSubmitEditing={() => handleReturnKeyPress(input1)}
+                                style={styles.input}
+                                autoCapitalize='none'
+                                placeholder='Email'
+                                placeholderTextColor='#BEBFBF'
+                                keyboardType='email-address'
+                                autoFocus={true}
+                                value={values.email}
+                                onChangeText={handleChange('email')}
+                                onBlur={handleBlur('email')}
+                            />
+                            <TextInput
+                                ref={input2}
+                                returnKeyType='done'
+                                onSubmitEditing={() => handleReturnKeyPress(input2)}
+                                style={styles.input}
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                                secureTextEntry={true}
+                                textContentType='password'
+                                placeholder='Password'
+                                placeholderTextColor='#BEBFBF'
+                                value={values.password}
+                                onChangeText={handleChange('password')}
+                                onBlur={handleBlur('password')}
+                            />
+                        </View>
+
+
+                        <View style={styles.forgotPasswordButtonContainer}>
+                            <TouchableOpacity>
+                                <Text style={styles.forgotPasswordButton}>Forgot password?</Text>
+                            </TouchableOpacity>
+                        </View>
+
+
+
+                        <Pressable
+                            onPress={handleSubmit}
+                            style={styles.loginContainer(isValid)}
+                        >
+                            <Text style={styles.buttonText}>Log in</Text>
+                        </Pressable>
+
+
+
+                        <View style={styles.signUpContainer}>
+                            <Text style={styles.text}>Don't have an account?</Text>
+                            <TouchableOpacity>
+                                <Text style={styles.signUpText}>Sign Up</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </>
+                )}
+            </Formik>
+        </View>
+
     );
 };
 
@@ -136,16 +149,16 @@ const styles = StyleSheet.create({
         margin: 10,
         padding: 10,
     },
-    loginContainer: {
-        width: '90%',
+    loginContainer: isValid => ({
+        width: '92%',
+        padding: 7,
         alignItems: 'center',
-        backgroundColor: '#049DF8',
+        backgroundColor: isValid ? '#049DF8' : null,
         marginTop: 30,
         borderRadius: 10,
-    },
-    button: {
-        padding: 10,
-    },
+        borderWidth: isValid ? 0 : 1,
+        borderColor: '#fff',
+    }),
     buttonText: {
         color: '#fff',
         fontSize: 20,
