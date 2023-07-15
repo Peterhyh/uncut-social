@@ -1,4 +1,5 @@
 //------------------------------FIREBASE------------------------------
+// import firebase from 'firebase';
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import {
@@ -21,8 +22,12 @@ const firebaseConfig = {
   measurementId: MEASUREMENT_ID
 };
 
-export const FIREBASE_APP = initializeApp(firebaseConfig);
-export const FIREBASE_AUTH = getAuth(FIREBASE_APP);
+const FIREBASE_APP = initializeApp(firebaseConfig);
+const FIREBASE_AUTH = getAuth(FIREBASE_APP);
+
+// const db = firebase.firestore();
+
+export { FIREBASE_AUTH };
 //------------------------------FIREBASE------------------------------
 import { createStackNavigator } from '@react-navigation/stack';
 
