@@ -31,6 +31,14 @@ const Header = ({ navigation }) => {
                         source={require('../../assets/images/message.png')}
                     />
                 </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('LoginScreen')}
+                >
+                    <Image
+                        style={styles.icon}
+                        source={require('../../assets/images/settings.png')}
+                    />
+                </TouchableOpacity>
             </View>
         </View>
     );

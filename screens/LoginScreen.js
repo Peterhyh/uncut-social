@@ -2,17 +2,19 @@ import { View, TextInput, Text, StyleSheet, Pressable } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState, useRef } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { FIREBASE_AUTH } from '../App';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-const auth = FIREBASE_AUTH;
+//------------------------------FIREBASE------------------------------
+import { FIREBASE_AUTH } from '../App';
+//------------------------------FIREBASE------------------------------
+
 
 const LoginScreen = ({ navigation }) => {
 
     const loginFormSchema = Yup.object().shape({
         email: Yup.string().email().required('An email is required'),
-        password: Yup.string().required().min(8, 'Password must be at least 8 characters')
+        password: Yup.string().required(),
     });
 
     const input1 = useRef();
@@ -24,21 +26,18 @@ const LoginScreen = ({ navigation }) => {
         };
     };
 
-    // const handleLogin = async () => {
-    //     try {
-    //         await signInWithEmailAndPassword(auth, email, password)
-    //             .then((response) => {
-    //                 console.log(response);
-    //                 alert('Login Successful!');
-    //                 clearForm();
-    //             })
-    //             .catch(err => {
-    //                 alert('Email and password did not match');
-    //             });
-    //     } catch (error) {
-    //         alert(error);
-    //     }
-    // };
+    //------------------------------FIREBASE------------------------------
+    const handleLogin = async (email, password) => {
+        try {
+            await signInWithEmailAndPassword(FIREBASE_AUTH, email, password)
+            console.log('Login successful!');
+            navigation.navigate('HomeScreen');
+        } catch (error) {
+            console.log(email, password);
+            alert('Username and/or password is incorrect');
+        }
+    };
+    //------------------------------FIREBASE------------------------------
 
     return (
         <View style={styles.container}>
@@ -46,8 +45,7 @@ const LoginScreen = ({ navigation }) => {
                 initialValues={{ email: '', password: '' }}
                 validationSchema={loginFormSchema}
                 onSubmit={values => {
-                    console.log(values);
-                    navigation.navigate('HomeScreen');
+                    handleLogin(values.email, values.password);
                 }}
                 validateOnMount={true}
             >
@@ -110,7 +108,7 @@ const LoginScreen = ({ navigation }) => {
 
                         <View style={styles.signUpContainer}>
                             <Text style={styles.text}>Don't have an account?</Text>
-                            <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
+                            <TouchableOpacity onPress={() => navigation.push('RegisterScreen')}>
                                 <Text style={styles.signUpText}>Sign Up</Text>
                             </TouchableOpacity>
                         </View>
