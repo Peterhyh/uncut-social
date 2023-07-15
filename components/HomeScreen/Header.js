@@ -4,7 +4,7 @@ const Header = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <TouchableOpacity>
-                <Text style={styles.logo}>INSTA-CLONE</Text>
+                <Text style={styles.logo}>UPLOADED</Text>
             </TouchableOpacity>
 
             <View style={styles.iconsContainer}>
