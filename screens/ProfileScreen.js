@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
     container: {
         display: 'flex',
         alignItems: 'center',
+        backgroundColor: '#202124',
         height: '100%',
     },
     avatar: {
