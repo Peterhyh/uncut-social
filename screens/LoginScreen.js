@@ -1,12 +1,12 @@
 import { View, TextInput, Text, StyleSheet, Pressable } from 'react-native';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 //------------------------------FIREBASE------------------------------
-import { FIREBASE_AUTH } from '../App';
+import { FIREBASE_AUTH, db } from '../App';
 //------------------------------FIREBASE------------------------------
 
 

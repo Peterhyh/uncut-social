@@ -6,7 +6,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 //------------------------------FIREBASE------------------------------
-import { FIREBASE_AUTH } from '../App';
+import { FIREBASE_AUTH, db } from '../App';
 //------------------------------FIREBASE------------------------------
 
 
@@ -42,9 +42,18 @@ const RegisterScreen = ({ navigation }) => {
         }
     };
 
-    const handleRegisterUser = async (email, password) => {
+    const handleRegisterUser = async (email, password, username, firstName, lastName,) => {
         try {
-            await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
+            const authUser = await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
+            db.collection('users').add({
+                owner_uid: authUser.user.uid,
+                email: authUser.email,
+                username: username,
+                firstName: firstName,
+                lastName: lastName,
+                gender: '',
+                profilePic: '',
+            })
             console.log('Successfully registered user!');
             navigation.navigate('LoginScreen');
         } catch (error) {
@@ -68,6 +77,9 @@ const RegisterScreen = ({ navigation }) => {
                 handleRegisterUser(
                     values.email,
                     values.password,
+                    values.username,
+                    values.firstName,
+                    values.lastName,
                 )
             }}
             validationSchema={RegisterFormSchema}
