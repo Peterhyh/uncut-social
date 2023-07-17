@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import BACK_BUTTON from '../assets/images/backButton.png';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { addDoc, collection } from 'firebase/firestore';
 
 //------------------------------FIREBASE------------------------------
 import { FIREBASE_AUTH, db } from '../App';
@@ -44,17 +45,14 @@ const RegisterScreen = ({ navigation }) => {
 
     const handleRegisterUser = async (email, password, username, firstName, lastName,) => {
         try {
-            const authUser = await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
-            db.collection('users').add({
-                owner_uid: authUser.user.uid,
-                email: authUser.email,
+            await createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
+            addDoc(collection(db, 'users'), {
                 username: username,
+                email: email,
                 firstName: firstName,
                 lastName: lastName,
-                gender: '',
-                profilePic: '',
-            })
-            console.log('Successfully registered user!');
+            });
+            alert('User created successfully!')
             navigation.navigate('LoginScreen');
         } catch (error) {
             console.log(error);

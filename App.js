@@ -1,5 +1,6 @@
 //------------------------------FIREBASE------------------------------
-// import firebase from 'firebase';
+
+import { getFirestore } from 'firebase/firestore';
 import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 import {
@@ -27,18 +28,8 @@ const FIREBASE_AUTH = getAuth(FIREBASE_APP);
 
 const db = getFirestore(FIREBASE_APP);
 
-// const db = firebase.firestore();
-
 export { FIREBASE_AUTH, db };
 //------------------------------FIREBASE------------------------------
-import { createStackNavigator } from '@react-navigation/stack';
-
-
-const Stack = createStackNavigator();
-
-const screenOptions = {
-  headerShown: false,
-}
 
 
 import SignedInStack from './navigation';
