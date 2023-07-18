@@ -31,7 +31,6 @@ const LoginScreen = ({ navigation }) => {
         try {
             await signInWithEmailAndPassword(FIREBASE_AUTH, email, password)
             console.log('Login successful!');
-            navigation.navigate('HomeScreen');
         } catch (error) {
             console.log(email, password);
             alert('Username and/or password is incorrect');

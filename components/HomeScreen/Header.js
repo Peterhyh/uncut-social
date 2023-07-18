@@ -1,6 +1,21 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { signOut } from 'firebase/auth';
+import { FIREBASE_AUTH } from '../../App';
 
 const Header = ({ navigation }) => {
+
+    const signOutUser = async () => {
+        try {
+            await signOut(FIREBASE_AUTH)
+                .then(() => {
+                    alert('You have signed out.');
+                })
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+
     return (
         <View style={styles.container}>
             <TouchableOpacity>
@@ -32,7 +47,7 @@ const Header = ({ navigation }) => {
                     />
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('LoginScreen')}
+                    onPress={() => signOutUser()}
                 >
                     <Image
                         style={styles.icon}

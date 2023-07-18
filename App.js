@@ -32,11 +32,11 @@ export { FIREBASE_AUTH, db };
 //------------------------------FIREBASE------------------------------
 
 
-import SignedInStack from './navigation';
+import AuthNavigation from './AuthNavigation';
 
 export default function App() {
   return (
-    <SignedInStack />
+    <AuthNavigation />
   );
 };
 
