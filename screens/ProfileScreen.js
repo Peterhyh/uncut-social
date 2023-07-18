@@ -13,11 +13,13 @@ const ProfileScreen = () => {
         <View style={styles.container}>
             <View style={styles.avatar}>
                 <Avatar
-                    size={100}
                     rounded
+                    borderRadius={10}
+                    size={100}
                     source={profile.img}
                 />
             </View>
+            <FollowersFollowing />
             <View>
                 <Card containerStyle={styles.card}>
                     <Card.Title style={styles.text}>{profile.name}</Card.Title>
@@ -28,24 +30,47 @@ const ProfileScreen = () => {
     );
 };
 
+const FollowersFollowing = () => (
+    <View style={styles.followersFollowingContainer}>
+        <View style={styles.counterContainer}>
+            <Text style={styles.text}>10</Text>
+            <Text style={styles.text}>Followers</Text>
+        </View>
+        <View style={styles.counterContainer}>
+            <Text style={styles.text}>20</Text>
+            <Text style={styles.text}>Following</Text>
+        </View>
+    </View>
+);
+
 const styles = StyleSheet.create({
     container: {
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#202124',
+        backgroundColor: '#000',
         height: '100%',
     },
     avatar: {
         marginTop: 10,
         marginBottom: 10,
+        borderWidth: 2,
+        borderColor: '#fff',
+        borderRadius: 50,
     },
     card: {
         borderRadius: 10,
         backgroundColor: '#2F2F2F',
-        borderColor: '#3B3B3B',
+        borderColor: '#fff',
     },
     text: {
         color: '#fff',
+    },
+    followersFollowingContainer: {
+        flexDirection: 'row',
+    },
+    counterContainer: {
+        alignItems: 'center',
+        margin: 10,
     },
 });
 

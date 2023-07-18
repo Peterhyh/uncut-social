@@ -4,19 +4,37 @@ import Header from '../components/HomeScreen/Header';
 import Post from '../components/HomeScreen/Post';
 import { POST } from '../data/posts';
 import BottomTab from '../components/HomeScreen/BottomTab';
+import ProfileScreen from './ProfileScreen';
+import { useState } from 'react';
 
 const HomeScreen = ({ navigation }) => {
+    const [activeTab, setActiveTab] = useState('Home');
     return (
         <SafeAreaView style={styles.container}>
             <Header navigation={navigation} />
-            <Stories />
-            <ScrollView>
-                {POST.map((post, i) => (
-                    <Post post={post} key={i} />
-                ))}
 
-            </ScrollView>
-            <BottomTab />
+
+            {
+                activeTab === 'Home'
+                    ? (
+                        <>
+                            <Stories />
+                            <ScrollView>
+                                {POST.map((post, i) => (
+                                    <Post post={post} key={i} />
+                                ))}
+                            </ScrollView>
+                        </>
+                    ) : null
+            }
+            {
+                activeTab === 'Profile'
+                    ? (
+                        <ProfileScreen />
+                    ) : null
+            }
+
+            <BottomTab activeTab={activeTab} setActiveTab={setActiveTab} />
         </SafeAreaView>
     )
 };

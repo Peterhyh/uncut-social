@@ -27,8 +27,7 @@ const icons = [
 
 
 
-const BottomTab = () => {
-    const [activeTab, setActiveTab] = useState('Home');
+const BottomTab = ({ activeTab, setActiveTab }) => {
 
     const Icon = ({ icon }) => (
         <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
@@ -44,6 +43,7 @@ const BottomTab = () => {
     );
 
     return (
+
         <View style={styles.wrapper}>
             <Divider width={1} orientation='vertical' />
             <View style={styles.container}>
@@ -61,7 +61,8 @@ const styles = StyleSheet.create({
         zIndex: 777,
         width: '100%',
         backgroundColor: '#000',
-        bottom: '3%',
+        paddingVertical: 20,
+        bottom: 0,
     },
     container: {
         flexDirection: 'row',
