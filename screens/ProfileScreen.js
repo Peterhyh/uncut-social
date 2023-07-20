@@ -26,6 +26,7 @@ const ProfileScreen = () => {
                     <Text style={styles.text}>{profile.bio}</Text>
                 </Card>
             </View>
+            <userPosts />
         </View>
     );
 };
@@ -42,6 +43,13 @@ const FollowersFollowing = () => (
         </View>
     </View>
 );
+
+const userPosts = () => {
+    return (
+        <>
+        </>
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
     },
     counterContainer: {
         alignItems: 'center',
-        margin: 11,
+        margin: 10,
     },
 });
 
