@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     },
     counterContainer: {
         alignItems: 'center',
-        margin: 10,
+        margin: 11,
     },
 });
 
