@@ -1,9 +1,9 @@
 import { ScrollView, StyleSheet, SafeAreaView } from 'react-native';
-import Stories from '../components/HomeScreen/Stories';
-import Header from '../components/HomeScreen/Header';
-import Post from '../components/HomeScreen/Post';
+import Stories from '../components/Home/Stories';
+import Header from '../components/Home/Header';
+import Post from '../components/Home/Post';
 import { POST } from '../data/posts';
-import BottomTab from '../components/HomeScreen/BottomTab';
+import BottomTab from '../components/Home/BottomTab';
 import ProfileScreen from './ProfileScreen';
 import { useState } from 'react';
 

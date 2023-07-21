@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { Avatar, ListItem, Card } from 'react-native-elements';
+import { Avatar, Card } from 'react-native-elements';
+import UserPosts from '../components/Profile/UserPosts';
 
 import PIC from '../assets/images/profilePic.jpg'
 
@@ -26,7 +27,7 @@ const ProfileScreen = () => {
                     <Text style={styles.text}>{profile.bio}</Text>
                 </Card>
             </View>
-            <userPosts />
+            <UserPosts />
         </View>
     );
 };
@@ -43,13 +44,6 @@ const FollowersFollowing = () => (
         </View>
     </View>
 );
-
-const userPosts = () => {
-    return (
-        <>
-        </>
-    );
-};
 
 const styles = StyleSheet.create({
     container: {

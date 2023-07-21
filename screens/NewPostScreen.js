@@ -1,5 +1,5 @@
 import { View, StyleSheet } from 'react-native';
-import AddNewPost from '../components/NewPostScreen/AddNewPost';
+import AddNewPost from '../components/NewPost/AddNewPost';
 
 
 const NewPostScreen = ({ navigation }) => {
