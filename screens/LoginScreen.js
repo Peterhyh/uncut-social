@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     },
     signUpText: {
         color: '#6BB0F5',
-        marginLeft: 11,
+        marginLeft: 10,
     },
 });
 
