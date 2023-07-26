@@ -1,14 +1,14 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { Avatar, Card } from 'react-native-elements';
 import UserPosts from '../components/Profile/UserPosts';
+import { users } from '../data/users';
+import { posts } from '../data/posts';
 
-import PIC from '../assets/images/profilePic.jpg'
 
 
 
 
 const ProfileScreen = () => {
-    const profile = { id: 0, img: PIC, name: 'Peter Huynh', bio: 'Welcome to my page!' };
 
     return (
         <View style={styles.container}>
@@ -17,17 +17,17 @@ const ProfileScreen = () => {
                     rounded
                     borderRadius={10}
                     size={100}
-                    source={profile.img}
+                    source={users[0].profilePic}
                 />
             </View>
             <FollowersFollowing />
             <View>
                 <Card containerStyle={styles.card}>
-                    <Card.Title style={styles.text}>{profile.name}</Card.Title>
-                    <Text style={styles.text}>{profile.bio}</Text>
+                    <Card.Title style={styles.text}>{users[0].firstName}{' '}{users[0].lastName}</Card.Title>
+                    <Text style={styles.text}>{users[0].bio}</Text>
                 </Card>
             </View>
-            <UserPosts />
+            <UserPosts users={users} />
         </View>
     );
 };
