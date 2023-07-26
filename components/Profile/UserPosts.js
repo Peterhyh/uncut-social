@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { Divider } from 'react-native-elements';
 
 
@@ -11,9 +11,11 @@ const UserPosts = ({ users }) => (
                     ? (
                         users[0].posts.map((post, i) => {
                             return (
-                                <View key={i}>
+
+                                <View style={styles.postImagesContainer} key={i}>
                                     <Image style={styles.postImage} source={post.post_image} />
                                 </View>
+
                             )
                         })
                     ) : (
@@ -31,18 +33,22 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     postContainer: {
-        justifyContent: 'center',
         flexDirection: 'row',
+        flexWrap: 'wrap',
     },
     noContentText: {
         marginTop: 70,
+        marginLeft: 140,
         color: '#fff',
         fontSize: 30,
     },
     postImage: {
-        width: 141,
-        height: 141,
+        width: 140,
+        height: 140,
         margin: 1,
+    },
+    postImagesContainer: {
+
     },
 });
 

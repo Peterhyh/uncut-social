@@ -4,6 +4,7 @@ import NOODLES from '../assets/images/noodles.png';
 import CAT from '../assets/images/cat.jpeg';
 import FUNNY_NOODLES from '../assets/images/funnynoodles.png';
 import NUGGET_BOOTY from '../assets/images/booty.png';
+import PROFILE_NUGGET from '../assets/images/nugget.png';
 
 
 export const users = [
@@ -33,7 +34,7 @@ export const users = [
         }, {
             post_image: FUNNY_NOODLES,
             likes: 2304,
-            caption: "That's me!",
+            caption: "Nooders!",
             comments: [],
         }, {
             post_image: NUGGET_BOOTY,
@@ -41,8 +42,68 @@ export const users = [
             caption: "Booty booty!",
             comments: [
                 {
-                    username: 'Peterhyh',
+                    username: 'Nugget',
                     comment: "You were so young!"
+                },
+            ],
+        }, {
+            post_image: PROFILE_PIC,
+            likes: 3826,
+            caption: "Me!",
+            comments: [
+                {
+                    username: 'Nugget',
+                    comment: "Cool!"
+                },
+            ],
+        }, {
+            post_image: PROFILE_NUGGET,
+            likes: 4180,
+            caption: "Me!",
+            comments: [
+                {
+                    username: 'Nugget',
+                    comment: "That's me!"
+                },
+            ],
+        }, {
+            post_image: NOODLES,
+            likes: 1633,
+            caption: "Me!",
+            comments: [
+                {
+                    username: 'Noodles',
+                    comment: "That's me!"
+                },
+            ],
+        }, {
+            post_image: PROFILE_PIC,
+            likes: 3826,
+            caption: "Me!",
+            comments: [
+                {
+                    username: 'Nugget',
+                    comment: "Cool!"
+                },
+            ],
+        }, {
+            post_image: PROFILE_NUGGET,
+            likes: 4180,
+            caption: "Me!",
+            comments: [
+                {
+                    username: 'Nugget',
+                    comment: "That's me!"
+                },
+            ],
+        }, {
+            post_image: NOODLES,
+            likes: 1633,
+            caption: "Me!",
+            comments: [
+                {
+                    username: 'Noodles',
+                    comment: "That's me!"
                 },
             ],
         }]

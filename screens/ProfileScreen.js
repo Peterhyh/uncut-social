@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { Avatar, Card } from 'react-native-elements';
 import UserPosts from '../components/Profile/UserPosts';
 import { users } from '../data/users';
@@ -11,24 +11,26 @@ import { posts } from '../data/posts';
 const ProfileScreen = () => {
 
     return (
-        <View style={styles.container}>
-            <View style={styles.avatar}>
-                <Avatar
-                    rounded
-                    borderRadius={10}
-                    size={100}
-                    source={users[0].profilePic}
-                />
+        <ScrollView>
+            <View style={styles.container}>
+                <View style={styles.avatar}>
+                    <Avatar
+                        rounded
+                        borderRadius={10}
+                        size={100}
+                        source={users[0].profilePic}
+                    />
+                </View>
+                <FollowersFollowing />
+                <View>
+                    <Card containerStyle={styles.card}>
+                        <Card.Title style={styles.text}>{users[0].firstName}{' '}{users[0].lastName}</Card.Title>
+                        <Text style={styles.text}>{users[0].bio}</Text>
+                    </Card>
+                </View>
+                <UserPosts users={users} />
             </View>
-            <FollowersFollowing />
-            <View>
-                <Card containerStyle={styles.card}>
-                    <Card.Title style={styles.text}>{users[0].firstName}{' '}{users[0].lastName}</Card.Title>
-                    <Text style={styles.text}>{users[0].bio}</Text>
-                </Card>
-            </View>
-            <UserPosts users={users} />
-        </View>
+        </ScrollView>
     );
 };
 

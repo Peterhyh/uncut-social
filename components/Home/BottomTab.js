@@ -61,13 +61,12 @@ const styles = StyleSheet.create({
         zIndex: 777,
         width: '100%',
         backgroundColor: '#000',
-        paddingVertical: 20,
         bottom: 0,
     },
     container: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        margin: 10,
+        margin: 21,
     },
     icon: {
         height: 33,
