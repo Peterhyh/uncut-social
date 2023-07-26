@@ -2,7 +2,6 @@ import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { Avatar, Card } from 'react-native-elements';
 import UserPosts from '../components/Profile/UserPosts';
 import { users } from '../data/users';
-import { posts } from '../data/posts';
 
 
 
