@@ -24,7 +24,7 @@ const Header = ({ navigation }) => {
 
             <View style={styles.iconsContainer}>
                 <TouchableOpacity
-                    onPress={() => navigation.push('NewPostScreen')}
+                    onPress={() => navigation.push('NewPost')}
                 >
                     <Image
                         style={styles.icon}
@@ -37,7 +37,9 @@ const Header = ({ navigation }) => {
                         source={require('../../assets/images/bell.png')}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => navigation.push('Message')}
+                >
                     <View style={styles.unreadBadgeContainer}>
                         <Text style={styles.unreadBadge}>7</Text>
                     </View>

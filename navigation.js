@@ -4,6 +4,7 @@ import NewPostScreen from './screens/NewPostScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import MessageScreen from './screens/MessageScreen';
 
 const Stack = createStackNavigator();
 
@@ -15,17 +16,21 @@ export const SignedInStack = () => {
     return (
         <NavigationContainer >
             <Stack.Navigator
-                initialRouteName='HomeScreen'
+                initialRouteName='Home'
             >
                 <Stack.Screen
-                    name='HomeScreen'
+                    name='Home'
                     component={HomeScreen}
                     options={screenOptions}
                 />
                 <Stack.Screen
-                    name='NewPostScreen'
+                    name='NewPost'
                     component={NewPostScreen}
                     options={screenOptions}
+                />
+                <Stack.Screen
+                    name='Message'
+                    component={MessageScreen}
                 />
             </Stack.Navigator>
         </NavigationContainer>
