@@ -18,7 +18,7 @@ const Message = () => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        backgroundColor: '#EFEFEF',
+        backgroundColor: '#1F1F1F',
         alignItems: 'center',
         padding: 10,
         borderWidth: 1,
