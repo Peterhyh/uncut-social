@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 10,
         borderWidth: 1,
-        borderColor: '#000000',
+        borderColor: '#000',
     },
     senderPic: {
         height: 65,
